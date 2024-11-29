@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:meat_selling_app/util.dart';
+import 'package:meat_selling_app/ui/root_page.dart';
+import 'package:meat_selling_app/ui/screens/home_page.dart';
 
-import 'screens/home/home_screen.dart';
+import 'ui/onboarding_screen.dart';
 
-void main() {
+void main(){
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Chicken Meat Demo',
-      theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: textColor),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MeatHomePage(),
+    return const MaterialApp(
+      title: 'Onboarding Screen',
+      home: OnboardingScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
