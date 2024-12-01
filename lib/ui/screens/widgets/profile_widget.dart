@@ -23,7 +23,7 @@ class ProfileWidget extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: Constants.blackColor.withOpacity(.5),
+                color: Constants.primaryColor.withOpacity(.5),
                 size: 24,
               ),
               const SizedBox(
@@ -32,7 +32,7 @@ class ProfileWidget extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: Constants.blackColor,
+                  color: Constants.primaryColor,
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                 ),
@@ -41,7 +41,7 @@ class ProfileWidget extends StatelessWidget {
           ),
           Icon(
             Icons.arrow_forward_ios,
-            color: Constants.blackColor.withOpacity(.4),
+            color: Constants.primaryColor.withOpacity(.4),
             size: 16,
           )
         ],

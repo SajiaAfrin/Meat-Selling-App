@@ -173,7 +173,7 @@ class _DetailPageState extends State<DetailPage> {
                           Text(
                             r'$' + _plantList[widget.plantId].price.toString(),
                             style: TextStyle(
-                              color: Constants.blackColor,
+                              color: Constants.primaryColor,
                               fontSize: 24.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -208,7 +208,7 @@ class _DetailPageState extends State<DetailPage> {
                       style: TextStyle(
                         height: 1.5,
                         fontSize: 18,
-                        color: Constants.blackColor.withOpacity(.7),
+                        color: Constants.primaryColor.withOpacity(.7),
                       ),
                     ),
                   ),
@@ -297,7 +297,7 @@ class PlantFeature extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            color: Constants.blackColor,
+            color: Constants.primaryColor,
           ),
         ),
         Text(

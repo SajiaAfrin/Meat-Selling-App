@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Icon(
                         Icons.search,
-                        color: Colors.black54.withOpacity(.6),
+                        color: Constants.primaryColor,
                       ),
                       const Expanded(
                           child: TextField(
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                               : FontWeight.w300,
                           color: selectedIndex == index
                               ? Constants.primaryColor
-                              : Constants.blackColor,
+                              : Constants.primaryColor,
                         ),
                       ),
                     ),
@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                       decoration: BoxDecoration(
-                        color: Constants.primaryColor.withOpacity(.8),
+                        color: Constants.homepageColor.withOpacity(.8),
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),

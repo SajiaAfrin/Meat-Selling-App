@@ -17,14 +17,14 @@ class CustomTextfield extends StatelessWidget {
     return TextField(
       obscureText: obscureText,
       style: TextStyle(
-        color: Constants.blackColor,
+        color: Constants.primaryColor,
       ),
       decoration: InputDecoration(
         border: InputBorder.none,
-        prefixIcon: Icon(icon, color: Constants.blackColor.withOpacity(.3),),
+        prefixIcon: Icon(icon, color: Constants.primaryColor.withOpacity(.3),),
         hintText: hintText,
       ),
-      cursorColor: Constants.blackColor.withOpacity(.5),
+      cursorColor: Constants.primaryColor.withOpacity(.5),
     );
   }
 }

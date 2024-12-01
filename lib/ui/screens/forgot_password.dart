@@ -76,7 +76,7 @@ class ForgotPassword extends StatelessWidget {
                       TextSpan(
                         text: 'Have an Account? ',
                         style: TextStyle(
-                          color: Constants.blackColor,
+                          color: Constants.primaryColor,
                         ),
                       ),
                       TextSpan(

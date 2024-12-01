@@ -21,7 +21,14 @@ class SignUp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/signup.png'),
+             Center(
+                child: Image.asset(
+                'assets/images/refer.png',
+                width: 100,  // Set the width
+                height: 100, // Set the height
+                fit: BoxFit.cover, // Optional: Adjust how the image fits
+              ),
+              ),
               const Text(
                 'Sign Up',
                 style: TextStyle(
@@ -103,7 +110,7 @@ class SignUp extends StatelessWidget {
                     Text(
                       'Sign Up with Google',
                       style: TextStyle(
-                        color: Constants.blackColor,
+                        color: Constants.primaryColor,
                         fontSize: 18.0,
                       ),
                     ),
@@ -127,7 +134,7 @@ class SignUp extends StatelessWidget {
                       TextSpan(
                         text: 'Have an Account? ',
                         style: TextStyle(
-                          color: Constants.blackColor,
+                          color: Constants.primaryColor,
                         ),
                       ),
                       TextSpan(

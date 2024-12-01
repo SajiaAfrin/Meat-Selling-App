@@ -25,7 +25,7 @@ class ProfilePage extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Constants.primaryColor.withOpacity(.5),
+                  color: Constants.primaryColor,
                   width: 5.0,
                 ),
               ),
@@ -40,7 +40,7 @@ class ProfilePage extends StatelessWidget {
                   Text(
                     'Sajia Afrin',
                     style: TextStyle(
-                      color: Constants.blackColor,
+                      color: Constants.primaryColor,
                       fontSize: 20,
                     ),
                   ),
@@ -53,7 +53,7 @@ class ProfilePage extends StatelessWidget {
             Text(
               'sajia@gmail.com',
               style: TextStyle(
-                color: Constants.blackColor.withOpacity(.3),
+                color: Constants.primaryColor.withOpacity(.3),
               ),
             ),
             const SizedBox(

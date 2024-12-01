@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class Constants {
   //Primary color
   static var primaryColor = Color.fromARGB(255, 107, 15, 12);
-  static var blackColor = Colors.black54;
-  static var wColor = Colors.white;
+  static var homepageColor = Color.fromARGB(255, 252, 219, 219);
+  static var homepageColor1 = Color.fromARGB(255, 252, 219, 219);
+
 
 
   //Onboarding texts

@@ -50,7 +50,7 @@ class PlantWidget extends StatelessWidget {
                   width: 60.0,
                   height: 60.0,
                   decoration: BoxDecoration(
-                    color: Constants.primaryColor.withOpacity(.8),
+                    color: Constants.homepageColor1.withOpacity(.8),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -76,7 +76,7 @@ class PlantWidget extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: Constants.blackColor,
+                          color: Constants.primaryColor,
                         ),
                       ),
                     ],

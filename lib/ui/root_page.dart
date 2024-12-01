@@ -1,16 +1,13 @@
-
-
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:meat_selling_app/ui/screens/cart_page.dart';
 import 'package:meat_selling_app/ui/screens/favorite_page.dart';
 import 'package:meat_selling_app/ui/screens/home_page.dart';
+import 'package:meat_selling_app/ui/screens/notification.dart';
 import 'package:meat_selling_app/ui/screens/profile_page.dart';
-
 
 import '../constants.dart';
 import '../models/plants.dart';
-
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -26,11 +23,15 @@ class _RootPageState extends State<RootPage> {
   int _bottomNavIndex = 0;
 
   //List of the pages
-  List<Widget> _widgetOptions(){
+  List<Widget> _widgetOptions() {
     return [
       const HomePage(),
-      FavoritePage(favoritedPlants: favorites,),
-      CartPage(addedToCartPlants: myCart,),
+      FavoritePage(
+        favoritedPlants: favorites,
+      ),
+      CartPage(
+        addedToCartPlants: myCart,
+      ),
       const ProfilePage(),
     ];
   }
@@ -58,12 +59,27 @@ class _RootPageState extends State<RootPage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(titleList[_bottomNavIndex], style: TextStyle(
-              color: Constants.blackColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 24,
-            ),),
-            Icon(Icons.notifications, color: Constants.blackColor, size: 30.0,)
+            Text(
+              titleList[_bottomNavIndex],
+              style: TextStyle(
+                color: Constants.primaryColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 24,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                );
+              },
+              child: Icon(
+                Icons.notifications,
+                color: Constants.primaryColor,
+                size: 30.0,
+              ),
+            ),
           ],
         ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -74,32 +90,34 @@ class _RootPageState extends State<RootPage> {
         children: _widgetOptions(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           // Navigator.push(context, PageTransition(child: const ScanPage(), type: PageTransitionType.bottomToTop));
         },
-        child: Image.asset('assets/images/meat1.png', height: 30.0,),
-        backgroundColor: Constants.wColor,
+        child: Image.asset(
+          'assets/images/meat1.png',
+          height: 30.0,
+        ),
+        backgroundColor: Constants.primaryColor,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
-        splashColor: Constants.primaryColor,
-        activeColor: Constants.primaryColor,
-        inactiveColor: Colors.black.withOpacity(.5),
-        icons: iconList,
-        activeIndex: _bottomNavIndex,
-        gapLocation: GapLocation.center,
-        notchSmoothness: NotchSmoothness.softEdge,
-        onTap: (index){
-          setState(() {
-            _bottomNavIndex = index;
-            final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
-            final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
+          splashColor: Constants.primaryColor,
+          activeColor: Constants.primaryColor,
+          inactiveColor: Colors.black.withOpacity(.5),
+          icons: iconList,
+          activeIndex: _bottomNavIndex,
+          gapLocation: GapLocation.center,
+          notchSmoothness: NotchSmoothness.softEdge,
+          onTap: (index) {
+            setState(() {
+              _bottomNavIndex = index;
+              final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
+              final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
 
-            favorites = favoritedPlants;
-            myCart = addedToCartPlants.toSet().toList();
-          });
-        }
-      ),
+              favorites = favoritedPlants;
+              myCart = addedToCartPlants.toSet().toList();
+            });
+          }),
     );
   }
 }

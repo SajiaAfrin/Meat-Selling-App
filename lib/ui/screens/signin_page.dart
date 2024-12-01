@@ -22,7 +22,14 @@ class SignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/signin.png'),
+              Center(
+                child: Image.asset(
+                'assets/images/refer.png',
+                width: 100,  // Set the width
+                height: 100, // Set the height
+                fit: BoxFit.cover, // Optional: Adjust how the image fits
+              ),
+              ),
               const Text(
                 'Sign In',
                 style: TextStyle(
@@ -90,7 +97,7 @@ class SignIn extends StatelessWidget {
                       TextSpan(
                         text: 'Forgot Password? ',
                         style: TextStyle(
-                          color: Constants.blackColor,
+                          color: Constants.primaryColor,
                         ),
                       ),
                       TextSpan(
@@ -136,7 +143,7 @@ class SignIn extends StatelessWidget {
                     Text(
                       'Sign In with Google',
                       style: TextStyle(
-                        color: Constants.blackColor,
+                        color: Constants.primaryColor,
                         fontSize: 18.0,
                       ),
                     ),
@@ -160,7 +167,7 @@ class SignIn extends StatelessWidget {
                       TextSpan(
                         text: 'New to Planty? ',
                         style: TextStyle(
-                          color: Constants.blackColor,
+                          color: Constants.primaryColor,
                         ),
                       ),
                       TextSpan(
