@@ -54,8 +54,7 @@ class Plant {
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 2,
@@ -69,8 +68,7 @@ class Plant {
         imageURL: 'assets/images/meat2.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 3,
@@ -84,8 +82,7 @@ class Plant {
         imageURL: 'assets/images/meat.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 4,
@@ -99,8 +96,7 @@ class Plant {
         imageURL: 'assets/images/meat1.png',
         isFavorated: true,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 5,
@@ -114,8 +110,7 @@ class Plant {
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 6,
@@ -129,8 +124,7 @@ class Plant {
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 7,
@@ -144,8 +138,7 @@ class Plant {
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
     Plant(
         plantId: 8,
@@ -159,8 +152,7 @@ class Plant {
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
-        'This plant is one of the best plant. It grows in most of the regions in the world and can survive'
-            'even the harshest weather condition.',
+        'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
   ];
 
