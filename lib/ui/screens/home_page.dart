@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:meat_selling_app/ui/screens/widgets/plant_widget.dart';
+import 'package:meat_selling_app/ui/screens/widgets/meat_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
-
 import '../../constants.dart';
-import '../../models/plants.dart';
+import '../../models/meat.dart';
 import 'detail_page.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,13 +19,13 @@ class _HomePageState extends State<HomePage> {
     int selectedIndex = 0;
     Size size = MediaQuery.of(context).size;
 
-    List<Plant> _plantList = Plant.plantList;
+    List<Meat> _meatList = Meat.meatList;
 
     //Plants category
-    List<String> _plantTypes = [
+    List<String> _meatTypes = [
       'Beaf',
-      'Beaf',
-      'Beaf',
+      'Chicken',
+      'Lamb',
       'Beaf',
       'Mutton',
     ];
@@ -71,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                       )),
                       Icon(
                         Icons.mic,
-                        color: Colors.black54.withOpacity(.6),
+                        color: Constants.primaryColor,
                       ),
                     ],
                   ),
@@ -89,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             width: size.width,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: _plantTypes.length,
+                itemCount: _meatTypes.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -100,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       child: Text(
-                        _plantTypes[index],
+                        _meatTypes[index],
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: selectedIndex == index
@@ -118,7 +116,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: size.height * .3,
             child: ListView.builder(
-                itemCount: _plantList.length,
+                itemCount: _meatList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
@@ -127,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           PageTransition(
                               child: DetailPage(
-                                plantId: _plantList[index].plantId,
+                                meatId: _meatList[index].meatId,
                               ),
                               type: PageTransitionType.bottomToTop));
                     },
@@ -146,12 +144,12 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   setState(() {
                                     bool isFavorited = toggleIsFavorated(
-                                        _plantList[index].isFavorated);
-                                    _plantList[index].isFavorated = isFavorited;
+                                        _meatList[index].isFavorated);
+                                    _meatList[index].isFavorated = isFavorited;
                                   });
                                 },
                                 icon: Icon(
-                                  _plantList[index].isFavorated == true
+                                  _meatList[index].isFavorated == true
                                       ? Icons.favorite
                                       : Icons.favorite_border,
                                   color: Constants.primaryColor,
@@ -169,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                             right: 50,
                             top: 50,
                             bottom: 50,
-                            child: Image.asset(_plantList[index].imageURL),
+                            child: Image.asset(_meatList[index].imageURL),
                           ),
                           Positioned(
                             bottom: 15,
@@ -177,21 +175,18 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  _plantList[index].category,
-                                  style: const TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(
-                                  _plantList[index].plantName,
-                                  style: const TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                                Text(_meatList[index].category,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Constants.primaryColor,
+                                    )),
+                                Text(_meatList[index].name,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Constants.primaryColor,
+                                    )),
                               ],
                             ),
                           ),
@@ -206,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
-                                r'$' + _plantList[index].price.toString(),
+                                r'$' + _meatList[index].price.toString(),
                                 style: TextStyle(
                                     color: Constants.primaryColor,
                                     fontSize: 16),
@@ -237,16 +232,20 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             height: size.height * .5,
             child: ListView.builder(
-                itemCount: _plantList.length,
+                itemCount: _meatList.length,
                 scrollDirection: Axis.vertical,
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, PageTransition(child: DetailPage(plantId: _plantList[index].plantId), 
-                        type: PageTransitionType.bottomToTop));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                child:
+                                    DetailPage(meatId: _meatList[index].meatId),
+                                type: PageTransitionType.bottomToTop));
                       },
-                      child: PlantWidget(index: index, plantList: _plantList));
+                      child: MeatWidget(index: index, meatList: _meatList));
                 }),
           ),
         ],
@@ -254,4 +253,114 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'package:meat_selling_app/ui/screens/widgets/meat_widget.dart';
+// import 'package:page_transition/page_transition.dart';
+
+// import '../../constants.dart';
+// import '../../models/meat.dart';
+// import 'detail_page.dart';
+
+// class HomePage extends StatefulWidget {
+//   const HomePage({Key? key}) : super(key: key);
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     Size size = MediaQuery.of(context).size;
+
+//     List<Meat> _meatList = Meat.meatList;
+
+//     // Meat categories for tabs
+//     List<String> _meatTypes = [
+//       'Beef',
+//       'Chicken',
+//       'Lamb',
+//       'Mutton',
+//     ];
+
+//     return DefaultTabController(
+//       length: _meatTypes.length, // Number of tabs
+//       child: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: Colors.white,
+//           elevation: 0,
+//           title: Container(
+//             padding: const EdgeInsets.symmetric(horizontal: 16.0),
+//             width: size.width * .9,
+//             child: Row(
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Icon(Icons.search, color: Constants.primaryColor),
+//                 const Expanded(
+//                   child: TextField(
+//                     showCursor: false,
+//                     decoration: InputDecoration(
+//                       hintText: 'Search',
+//                       border: InputBorder.none,
+//                       focusedBorder: InputBorder.none,
+//                     ),
+//                   ),
+//                 ),
+//                 Icon(Icons.mic, color: Constants.primaryColor),
+//               ],
+//             ),
+//             decoration: BoxDecoration(
+//               color: Constants.primaryColor.withOpacity(.1),
+//               borderRadius: BorderRadius.circular(20),
+//             ),
+//           ),
+//           bottom: TabBar(
+//             labelColor: Constants.primaryColor,
+//             unselectedLabelColor: Colors.grey,
+//             indicatorColor: Constants.primaryColor,
+//             isScrollable: true,
+//             tabs: _meatTypes
+//                 .map((type) => Tab(
+//                       text: type,
+//                     ))
+//                 .toList(),
+//           ),
+//         ),
+//         body: TabBarView(
+//           children: _meatTypes.map((type) {
+//             // Filter the meat list based on the type
+//             List<Meat> filteredMeatList = _meatList
+//                 .where((meat) => meat.category.toLowerCase() == type.toLowerCase())
+//                 .toList();
+
+//             return ListView.builder(
+//               itemCount: filteredMeatList.length,
+//               itemBuilder: (context, index) {
+//                 return GestureDetector(
+//                   onTap: () {
+//                     Navigator.push(
+//                       context,
+//                       PageTransition(
+//                         child: DetailPage(
+//                           meatId: filteredMeatList[index].meatId,
+//                         ),
+//                         type: PageTransitionType.bottomToTop,
+//                       ),
+//                     );
+//                   },
+//                   child: MeatWidget(
+//                     index: index,
+//                     meatList: filteredMeatList,
+//                   ),
+//                 );
+//               },
+//             );
+//           }).toList(),
+//         ),
+//       ),
+//     );
+//   }
+// }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meat_selling_app/ui/screens/widgets/plant_widget.dart';
+import 'package:meat_selling_app/ui/screens/widgets/meat_widget.dart';
 
 import '../../constants.dart';
-import '../../models/plants.dart';
+import '../../models/meat.dart';
 
 
 class NotificationPage extends StatefulWidget {

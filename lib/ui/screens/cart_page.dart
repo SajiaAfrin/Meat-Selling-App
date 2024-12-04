@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:meat_selling_app/ui/screens/widgets/plant_widget.dart';
+import 'package:meat_selling_app/ui/screens/widgets/meat_widget.dart';
 
 import '../../constants.dart';
-import '../../models/plants.dart';
+import '../../models/meat.dart';
 
 class CartPage extends StatefulWidget {
-  final List<Plant> addedToCartPlants;
+  final List<Meat> addedToCartPlants;
   const CartPage({Key? key, required this.addedToCartPlants}) : super(key: key);
 
   @override
@@ -52,8 +52,8 @@ class _CartPageState extends State<CartPage> {
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
-                    return PlantWidget(
-                        index: index, plantList: widget.addedToCartPlants);
+                    return MeatWidget(
+                        index: index, meatList: widget.addedToCartPlants);
                   }),
             ),
             Column(

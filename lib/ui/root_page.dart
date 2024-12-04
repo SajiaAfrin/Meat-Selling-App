@@ -7,7 +7,7 @@ import 'package:meat_selling_app/ui/screens/notification.dart';
 import 'package:meat_selling_app/ui/screens/profile_page.dart';
 
 import '../constants.dart';
-import '../models/plants.dart';
+import '../models/meat.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -17,8 +17,8 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  List<Plant> favorites = [];
-  List<Plant> myCart = [];
+  List<Meat> favorites = [];
+  List<Meat> myCart = [];
 
   int _bottomNavIndex = 0;
 
@@ -97,13 +97,13 @@ class _RootPageState extends State<RootPage> {
           'assets/images/meat1.png',
           height: 30.0,
         ),
-        backgroundColor: Constants.primaryColor,
+        backgroundColor: Constants.homepageColor1,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
           splashColor: Constants.primaryColor,
           activeColor: Constants.primaryColor,
-          inactiveColor: Colors.black.withOpacity(.5),
+          inactiveColor: Constants.primaryColor.withOpacity(.5),
           icons: iconList,
           activeIndex: _bottomNavIndex,
           gapLocation: GapLocation.center,
@@ -111,8 +111,8 @@ class _RootPageState extends State<RootPage> {
           onTap: (index) {
             setState(() {
               _bottomNavIndex = index;
-              final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
-              final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
+              final List<Meat> favoritedPlants = Meat.getFavoritedPlants();
+              final List<Meat> addedToCartPlants = Meat.addedToCartPlants();
 
               favorites = favoritedPlants;
               myCart = addedToCartPlants.toSet().toList();

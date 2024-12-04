@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../../constants.dart';
-import '../../../models/plants.dart';
+import '../../../models/meat.dart';
 import '../detail_page.dart';
 
 
-class PlantWidget extends StatelessWidget {
-  const PlantWidget({
-    Key? key, required this.index, required this.plantList,
+class MeatWidget extends StatelessWidget {
+  const MeatWidget({
+    Key? key, required this.index, required this.meatList,
   }) : super(key: key);
 
   final int index;
-  final List<Plant> plantList;
+  final List<Meat> meatList;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PlantWidget extends StatelessWidget {
             context,
             PageTransition(
                 child: DetailPage(
-                  plantId: plantList[index].plantId,
+                  meatId: meatList[index].meatId,
                 ),
                 type: PageTransitionType.bottomToTop)
                 );
@@ -50,7 +50,7 @@ class PlantWidget extends StatelessWidget {
                   width: 60.0,
                   height: 60.0,
                   decoration: BoxDecoration(
-                    color: Constants.homepageColor1.withOpacity(.8),
+                    color: Constants.primaryColor.withOpacity(.5),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -61,7 +61,7 @@ class PlantWidget extends StatelessWidget {
                   child: SizedBox(
                     height: 80.0,
                     child:
-                    Image.asset(plantList[index].imageURL),
+                    Image.asset(meatList[index].imageURL),
                   ),
                 ),
                 Positioned(
@@ -70,9 +70,15 @@ class PlantWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(plantList[index].category),
+                      Text(meatList[index].category,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Constants.primaryColor,)
+                      ),
+
                       Text(
-                        plantList[index].plantName,
+                        meatList[index].name,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -87,7 +93,7 @@ class PlantWidget extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(right: 10),
               child: Text(
-                r'$' + plantList[index].price.toString(),
+                r'$' + meatList[index].price.toString(),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18.0,

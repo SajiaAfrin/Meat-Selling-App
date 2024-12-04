@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:meat_selling_app/ui/screens/widgets/plant_widget.dart';
+import 'package:meat_selling_app/ui/screens/widgets/meat_widget.dart';
 
 import '../../constants.dart';
-import '../../models/plants.dart';
+import '../../models/meat.dart';
 
 
 class FavoritePage extends StatefulWidget {
-  final List<Plant> favoritedPlants;
+  final List<Meat> favoritedPlants;
   const FavoritePage({Key? key, required this.favoritedPlants})
       : super(key: key);
 
@@ -51,8 +51,8 @@ class _FavoritePageState extends State<FavoritePage> {
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
-                    return PlantWidget(
-                        index: index, plantList: widget.favoritedPlants);
+                    return MeatWidget(
+                        index: index, meatList: widget.favoritedPlants);
                   }),
             ),
     );

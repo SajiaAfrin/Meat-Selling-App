@@ -1,154 +1,153 @@
-class Plant {
-  final int plantId;
+class Meat {
+  final int meatId;
   final int price;
   final String size;
   final double rating;
-  final int humidity;
-  final String temperature;
+  final int weight;
+  final String type;
   final String category;
-  final String plantName;
+  final String name;
   final String imageURL;
   bool isFavorated;
   final String decription;
   bool isSelected;
 
-  Plant(
-      {required this.plantId,
+  Meat(
+      {required this.meatId,
         required this.price,
         required this.category,
-        required this.plantName,
+        required this.name,
         required this.size,
         required this.rating,
-        required this.humidity,
-        required this.temperature,
+        required this.weight,
+        required this.type,
         required this.imageURL,
         required this.isFavorated,
         required this.decription,
         required this.isSelected});
 
-  //List of Plants data
-  static List<Plant> plantList = [
-    Plant(
-        plantId: 0,
+  static List<Meat> meatList = [
+    Meat(
+        meatId: 0,
         price: 22,
-        category: 'Meat',
-        plantName: '1kg',
+        category: 'Beef',
+        name: '1kg',
         size: 'Small',
         rating: 4.5,
-        humidity: 34,
-        temperature: 'sdfdfdf',
+        weight: 34,
+        type: 'sdfdfdf',
         imageURL: 'assets/images/meat.png',
         isFavorated: true,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 1,
+    Meat(
+        meatId: 1,
         price: 11,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Medium',
         rating: 4.8,
-        humidity: 56,
-        temperature: '19 - 22',
+        weight: 56,
+        type: '19 - 22',
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 2,
+    Meat(
+        meatId: 2,
         price: 18,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Large',
         rating: 4.7,
-        humidity: 34,
-        temperature: '22 - 25',
+        weight: 34,
+        type: '22 - 25',
         imageURL: 'assets/images/meat2.png',
         isFavorated: false,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 3,
+    Meat(
+        meatId: 3,
         price: 30,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Small',
         rating: 4.5,
-        humidity: 35,
-        temperature: '23 - 28',
+        weight: 35,
+        type: '23 - 28',
         imageURL: 'assets/images/meat.png',
         isFavorated: false,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 4,
+    Meat(
+        meatId: 4,
         price: 24,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Large',
         rating: 4.1,
-        humidity: 66,
-        temperature: '12 - 16',
+        weight: 66,
+        type: '12 - 16',
         imageURL: 'assets/images/meat1.png',
         isFavorated: true,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 5,
+    Meat(
+        meatId: 5,
         price: 24,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Medium',
         rating: 4.4,
-        humidity: 36,
-        temperature: '15 - 18',
+        weight: 36,
+        type: '15 - 18',
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 6,
+    Meat(
+        meatId: 6,
         price: 19,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Small',
         rating: 4.2,
-        humidity: 46,
-        temperature: '23 - 26',
+        weight: 46,
+        type: '23 - 26',
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 7,
+    Meat(
+        meatId: 7,
         price: 23,
         category: 'Meat',
-        plantName: '1kg',
+        name: '1kg',
         size: 'Medium',
         rating: 4.5,
-        humidity: 34,
-        temperature: '21 - 24',
+        weight: 34,
+        type: '21 - 24',
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
         'afsdgffgstaasdsfdfdgdgdgdfg',
         isSelected: false),
-    Plant(
-        plantId: 8,
+    Meat(
+        meatId: 8,
         price: 46,
         category: 'Meat',
-        plantName: '1kg',
+        name: '3kg',
         size: 'Medium',
         rating: 4.7,
-        humidity: 46,
-        temperature: '21 - 25',
+        weight: 46,
+        type: '21 - 25',
         imageURL: 'assets/images/meat1.png',
         isFavorated: false,
         decription:
@@ -157,14 +156,14 @@ class Plant {
   ];
 
   //Get the favorated items
-  static List<Plant> getFavoritedPlants(){
-    List<Plant> _travelList = Plant.plantList;
+  static List<Meat> getFavoritedPlants(){
+    List<Meat> _travelList = Meat.meatList;
     return _travelList.where((element) => element.isFavorated == true).toList();
   }
 
   //Get the cart items
-  static List<Plant> addedToCartPlants(){
-    List<Plant> _selectedPlants = Plant.plantList;
+  static List<Meat> addedToCartPlants(){
+    List<Meat> _selectedPlants = Meat.meatList;
     return _selectedPlants.where((element) => element.isSelected == true).toList();
   }
 }

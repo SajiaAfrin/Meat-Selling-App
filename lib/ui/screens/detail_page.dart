@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../../models/plants.dart';
+import '../../models/meat.dart';
 
 
 class DetailPage extends StatefulWidget {
-  final int plantId;
-  const DetailPage({Key? key, required this.plantId}) : super(key: key);
+  final int meatId;
+  const DetailPage({Key? key, required this.meatId}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -26,7 +26,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    List<Plant> _plantList = Plant.plantList;
+    List<Meat> _plantList = Meat.meatList;
     return Scaffold(
       body: Stack(
         children: [
@@ -69,13 +69,13 @@ class _DetailPageState extends State<DetailPage> {
                         onPressed: () {
                           setState(() {
                             bool isFavorited = toggleIsFavorated(
-                                _plantList[widget.plantId].isFavorated);
-                            _plantList[widget.plantId].isFavorated =
+                                _plantList[widget.meatId].isFavorated);
+                            _plantList[widget.meatId].isFavorated =
                                 isFavorited;
                           });
                         },
                         icon: Icon(
-                          _plantList[widget.plantId].isFavorated == true
+                          _plantList[widget.meatId].isFavorated == true
                               ? Icons.favorite
                               : Icons.favorite_border,
                           color: Constants.primaryColor,
@@ -100,7 +100,7 @@ class _DetailPageState extends State<DetailPage> {
                     left: 0,
                     child: SizedBox(
                       height: 350,
-                      child: Image.asset(_plantList[widget.plantId].imageURL),
+                      child: Image.asset(_plantList[widget.meatId].imageURL),
                     ),
                   ),
                   Positioned(
@@ -114,17 +114,17 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           PlantFeature(
                             title: 'Size',
-                            plantFeature: _plantList[widget.plantId].size,
+                            plantFeature: _plantList[widget.meatId].size,
                           ),
                           PlantFeature(
                             title: 'weight',
                             plantFeature:
-                                _plantList[widget.plantId].humidity.toString(),
+                                _plantList[widget.meatId].weight.toString(),
                           ),
                           PlantFeature(
                             title: 'Meat Type',
                             plantFeature:
-                                _plantList[widget.plantId].temperature,
+                                _plantList[widget.meatId].type,
                           ),
                         ],
                       ),
@@ -160,7 +160,7 @@ class _DetailPageState extends State<DetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            _plantList[widget.plantId].plantName,
+                            _plantList[widget.meatId].name,
                             style: TextStyle(
                               color: Constants.primaryColor,
                               fontWeight: FontWeight.bold,
@@ -171,7 +171,7 @@ class _DetailPageState extends State<DetailPage> {
                             height: 10,
                           ),
                           Text(
-                            r'$' + _plantList[widget.plantId].price.toString(),
+                            r'$' + _plantList[widget.meatId].price.toString(),
                             style: TextStyle(
                               color: Constants.primaryColor,
                               fontSize: 24.0,
@@ -183,7 +183,7 @@ class _DetailPageState extends State<DetailPage> {
                       Row(
                         children: [
                           Text(
-                            _plantList[widget.plantId].rating.toString(),
+                            _plantList[widget.meatId].rating.toString(),
                             style: TextStyle(
                               fontSize: 30.0,
                               color: Constants.primaryColor,
@@ -203,7 +203,7 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                   Expanded(
                     child: Text(
-                      _plantList[widget.plantId].decription,
+                      _plantList[widget.meatId].decription,
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         height: 1.5,
@@ -228,16 +228,16 @@ class _DetailPageState extends State<DetailPage> {
               width: 50,
               child: IconButton(onPressed: (){
                 setState(() {
-                  bool isSelected = toggleIsSelected(_plantList[widget.plantId].isSelected);
+                  bool isSelected = toggleIsSelected(_plantList[widget.meatId].isSelected);
 
-                  _plantList[widget.plantId].isSelected = isSelected;
+                  _plantList[widget.meatId].isSelected = isSelected;
                 });
               }, icon: Icon(
                 Icons.shopping_cart,
-                color: _plantList[widget.plantId].isSelected == true ? Colors.white : Constants.primaryColor,
+                color: _plantList[widget.meatId].isSelected == true ? Colors.white : Constants.primaryColor,
               )),
               decoration: BoxDecoration(
-                  color: _plantList[widget.plantId].isSelected == true ? Constants.primaryColor.withOpacity(.5) : Colors.white,
+                  color: _plantList[widget.meatId].isSelected == true ? Constants.primaryColor.withOpacity(.5) : Colors.white,
                   borderRadius: BorderRadius.circular(50),
                   boxShadow: [
                     BoxShadow(
